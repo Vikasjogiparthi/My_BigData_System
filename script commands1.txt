@@ -1,0 +1,65 @@
+mkdir HW2-data
+hadoop fs -put HW2-data /user/karem1a
+Open winscp to copy the txt files from U drive to /home/karem1a/HW2-data/
+echo "CREATE TABLE PGA_Tour_2010_2018(PLAYER_NAME TEXT NOT NULL, SEASON INT NOT NULL, STATISTIC TEXT NOT NULL, VARIABLE TEXT NOT NULL, VALUE NUMERIC NOT NULL);" | sqlite3 PGA.db
+cat PGA-Tour-2010-2018.txt | awk -F',' '{printf("INSERT INTO PGA_Tour_2010_2018 VALUES(\"%s\",%d,\"%s\",\"%s\",\"%s\");\n", $1, $2, $3, $4, $5)}' > insert-PGA-Tour-2010-2018.sql 
+ sqlite3 PGA.db < insert-PGA-Tour-2010-2018.sql 
+ cat PGA-Tour-2010-2018.txt | sed 's/,//5' > PGA-Tour-2010-2018-filtered-1ststage.txt // removed only the 5th occurance , (, in value column)
+ cat PGA-Tour-2010-2018-filtered-1ststage.txt | awk -F',' '{printf("INSERT INTO PGA_Tour_2010_2018 VALUES(\"%s\",%d,\"%s\",\"%s\",\"%s\");\n", $1, $2, $3, $4, $5)}' > insert-PGA-Tour-2010-2018-filtered-1ststage.sql 
+  sqlite3 PGA.db < insert-PGA-Tour-2010-2018-filtered-1ststage.sql
+ cat PGA-Tour-2010-2018-filtered-1ststage.txt | sed 's/"//g' > PGA-Tour-2010-2018-filtered-2ndstage.txt // remove all " in the file (Consider the values like 5' 6"" as 5' 6)
+ cat PGA-Tour-2010-2018-filtered-2ndstage.txt | awk -F',' '{printf("INSERT INTO PGA_Tour_2010_2018 VALUES(\"%s\",%d,\"%s\",\"%s\",\"%s\");\n", $1, $2, $3, $4, $5)}' > insert-PGA-Tour-2010-2018-filtered-2ndstage.sql 
+ sqlite3 PGA.db < insert-PGA-Tour-2010-2018-filtered-2ndstage.sql
+ echo "SELECT * FROM PGA_Tour_2010_2018;" | sqlite3 -column -header PGA.db
+ -- should remove filtered text file and sql file
+ 
+  cat PGA-Tour-2010-2018.txt | awk -F ',' '{printf("\"%s\",%d","%s","%s","%s"\n",$1,$2,$3,$4,$5)}'
+awk: cmd. line:1: {printf("\"%s\",%d","%s","%s","%s"\n",$1,$2,$3,$4,$5)}
+awk: cmd. line:1:                                   ^ backslash not last character on line
+awk: cmd. line:1: {printf("\"%s\",%d","%s","%s","%s"\n",$1,$2,$3,$4,$5)}
+awk: cmd. line:1:                                   ^ syntax error
+https://www.unix.com/shell-programming-and-scripting/146790-forming-insert-query-using-awk.html
+
+
+cat PGA-Tour-2010-2018.txt | awk -F',' '{printf("INSERT INTO PGA_Tour_2010_2018 VALUES(\"%s\",%d,\"%s\",\"%s\",\"%s\");\n", $1, $2, $3, $4, $5)}' > $$_insert-tweetsbydate.sql
+
+#!/bin/sh
+while read details
+do
+PLAYER_NAME=`echo $details | awk -F "|" '{print $1}'`
+SEASON=`echo $details | awk -F "|" '{print $2}'`
+STATISTIC=`echo $details | awk -F "|" '{print $3}'`
+VARIABLE=`echo $details | awk -F "|" '{print $4}'`
+VALUE=`echo $details | awk -F "|" '{print $5}'`
+echo "insert into company values (${PLAYER_NAME},\"${SEASON}\",\"${STATISTIC}\",\"${VARIABLE}\",\"${VALUE}\");"
+
+done < example
+
+sqlite3 $$_bv.db < $$_insert-tweetsbydate.sql
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+
+hadoop fs -copyFromLocal HW2-Data /user/ravul1s/
+http://bigdataprogrammers.com/load-text-file-into-hive-table-using-spark/
+http://www.informit.com/articles/article.aspx?p=2756471&seqNum=5
+http://bigdataprogrammers.com/load-hive-table-spark-using-scala/
+
+textDataRDD = sc.textFile("file:///home/ravul1s/HW2-Data/PGA-Tour-2010-2018-filtered-2ndstage.csv");
+type(textDataRDD)
+ textDataRDD.take(5)
+ header = textDataRDD.first()
+ type(header)
+ header
+ textDataRDD = textDataRDD.filter(lambda x:x != header)
+ textDataRDD.take(5)
+textDataDF = textDataRDD.map(lambda x: x.split(",")).toDF()
+type(textDataDF)
+textDataDF.show(5)
+from pyspark.sql import Row
+
+ textDataDF = textDataDF.rdd.map(lambda x: Row(player_name = x[0], season = x[1], statistic = x[2], variable = x[3], value = x[4])).toDF()
+ 
+ # Store data frame into hive table
+>>> textDataDF.write.format("ORC").saveAsTable("db_bdp.PGA-Tour-2010-2018-Data")
+
+ 
