@@ -11,18 +11,18 @@ Manual steps performed to place the ﬁles in the respective folder of DataInges
 [Note: sqlite insertion operation takes longer duration approximately 90 min ] 
 Execution step: hadoop fs -cat /user/karem1a/Homework2/Data_preprocessing_sqlite3_insertion.sh | exec sh 
 • "/home/karem1a/Homework2/pythonSpark_dataingestion_hiveloading.py" 
-– Cross validate PGA_Tour_2010_2018_preprodtest.csv exists in /user/karem1a/Homework2 /batchviews/ of HDFS
+ – Cross validate PGA_Tour_2010_2018_preprodtest.csv exists in /user/karem1a/Homework2 /batchviews/ of HDFS
  – If the above step is validated, Execute the python script, if not perform below operation. 
-– hadoop fs -copyFromLocal /home/karem1a/Homework2/batchviews/PGA_Tour_2010_2018_ preprodtest.csv /user/karem1a/Homework2/batchviews/
+ – hadoop fs -copyFromLocal /home/karem1a/Homework2/batchviews/PGA_Tour_2010_2018_ preprodtest.csv /user/karem1a/Homework2/batchviews/
  – cd /home/karem1a/Homework2/
 Executionstep: PYTHONSTARTUP=pythonSpark_dataingestion_hiveloading.py pyspark
 
 Automated Script “pythonSpark_dataingestion_hiveloading.py” perform the above process.
 BATCH LAYER:
 Manual steps performed to place "pythonSpark_batchlayer_servinglayer_preprodﬁnal.py" ﬁle in therespectivefolderofBatchlayerprocess: (Alltheﬁlesareintherespectivefolders,PleaseruntheexecutionstepstoperformBatchlayerandserving layer) • "pythonSpark_batchlayer_servinglayer_preprodﬁnal.py"(Batchlayerandservinglayerprocess)
-– hadoopfs-copyFromLocal/home/karem1a/Homework2/pythonSpark_dataingestion_hiveload ing.py /user/karem1a/Homework2/ 
-– hadoop fs -copyFromLocal /home/karem1a/Homework2/pythonSpark_batchlayer_servinglay er.py /user/karem1a/Homework2/ 
-– cd /home/karem1a/Homework2/
+ – hadoopfs-copyFromLocal/home/karem1a/Homework2/pythonSpark_dataingestion_hiveload ing.py /user/karem1a/Homework2/ 
+ – hadoop fs -copyFromLocal /home/karem1a/Homework2/pythonSpark_batchlayer_servinglay er.py /user/karem1a/Homework2/ 
+ – cd /home/karem1a/Homework2/
 Executionstep: PYTHONSTARTUP=pythonSpark_batchlayer_servinglayer_preprodﬁnal.pypyspark
 After the execution of the Batch layer, 9 different batch views which are created based on "Season". Each season data is considered as batch views. Batch views are generated in the below-mentioned path /user/karem1a/Homework2/batchviews/
 
