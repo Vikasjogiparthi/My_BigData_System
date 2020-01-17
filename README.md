@@ -34,9 +34,13 @@ Automated Script “pythonSpark_dataingestion_hiveloading.py” perform the abov
 BATCH LAYER:
 
 Manual steps performed to place "pythonSpark_batchlayer_servinglayer_preprodﬁnal.py" ﬁle in therespectivefolderofBatchlayerprocess: (Alltheﬁlesareintherespectivefolders,PleaseruntheexecutionstepstoperformBatchlayerandserving layer) 
+
 • "pythonSpark_batchlayer_servinglayer_preprodﬁnal.py"(Batchlayerandservinglayerprocess)
+
   – hadoopfs-copyFromLocal/home/karem1a/Homework2/pythonSpark_dataingestion_hiveload ing.py /user/karem1a/Homework2/ 
+ 
   – hadoop fs -copyFromLocal /home/karem1a/Homework2/pythonSpark_batchlayer_servinglay er.py /user/karem1a/Homework2/ 
+  
   – cd /home/karem1a/Homework2/
 
 Executionstep: PYTHONSTARTUP=pythonSpark_batchlayer_servinglayer_preprodﬁnal.pypyspark
@@ -48,7 +52,11 @@ Automated Script “pythonSpark_batchlayer_servinglayer_preprodfinal.py” does 
 Serving Layer:
 
 In this system, we have different queries to check the latency before and after generation batch views. The queries considered are 
- • 1. Best player of the statistic ’FedExCup Season Points’ and variable=’2012’ 
- • 2. List of players with maximum values of variable like (MONEY) in 2011 
- • 3. Count of distinct players in 2014 
- • 4. Distinct names of statistics in 2015 like Cup
+
+• 1. Best player of the statistic ’FedExCup Season Points’ and variable=’2012’ 
+
+• 2. List of players with maximum values of variable like (MONEY) in 2011 
+
+• 3. Count of distinct players in 2014 
+
+• 4. Distinct names of statistics in 2015 like Cup
