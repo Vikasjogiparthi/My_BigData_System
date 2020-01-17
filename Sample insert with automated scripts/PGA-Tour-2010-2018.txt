@@ -1,0 +1,30 @@
+Player Name,Season,Statistic,Variable,Value
+Robert Garrigus,2010,Driving Distance,Driving Distance - (ROUNDS),71
+Bubba Watson,2010,Driving Distance,Driving Distance - (ROUNDS),77
+Dustin Johnson,2010,Driving Distance,Driving Distance - (ROUNDS),83
+Brett Wetterich,2010,Driving Distance,Driving Distance - (ROUNDS),54
+J.B. Holmes,2010,Driving Distance,Driving Distance - (ROUNDS),100
+John Daly,2010,Driving Distance,Driving Distance - (ROUNDS),63
+Graham DeLaet,2010,Driving Distance,Driving Distance - (ROUNDS),88
+Willie Wood,2012,FedExCup Season Points,FedExCup Season Points - (POINTS BEHIND LEAD),2243
+Guy Boros,2012,FedExCup Season Points,FedExCup Season Points - (POINTS BEHIND LEAD),2243
+Tom Lehman,2012,FedExCup Season Points,FedExCup Season Points - (POINTS BEHIND LEAD),2244
+Jason Gore,2012,FedExCup Season Points,FedExCup Season Points - (POINTS BEHIND LEAD),2246
+Paul Casey,2012,FedExCup Season Points,FedExCup Season Points - (POINTS BEHIND LEAD),2250
+Len Mattiace,2012,FedExCup Season Points,FedExCup Season Points - (POINTS BEHIND LEAD),2251
+Bart Bryant,2012,FedExCup Season Points,FedExCup Season Points - (POINTS BEHIND LEAD),2251
+Craig Barlow,2012,FedExCup Season Points,FedExCup Season Points - (POINTS BEHIND LEAD),2251
+Scott Verplank,2012,FedExCup Season Points,FedExCup Season Points - (POINTS BEHIND LEAD),2252
+David Duval,2012,FedExCup Season Points,FedExCup Season Points - (POINTS BEHIND LEAD),2253
+Gene Sauers,2012,FedExCup Season Points,FedExCup Season Points - (POINTS BEHIND LEAD),2253
+Hank Kuehne,2012,FedExCup Season Points,FedExCup Season Points - (POINTS BEHIND LEAD),2259
+Rocco Mediate,2016,Best YTD Streak w/o a 3-Putt,Best YTD Streak w/o a 3-Putt - (CURRENT STREAK),4
+Jack Newman,2016,Best YTD Streak w/o a 3-Putt,Best YTD Streak w/o a 3-Putt - (CURRENT STREAK),9
+Wes Short, Jr.,2016,Best YTD Streak w/o a 3-Putt,Best YTD Streak w/o a 3-Putt - (CURRENT STREAK)15
+David Solomon,2016,Best YTD Streak w/o a 3-Putt,Best YTD Streak w/o a 3-Putt - (CURRENT STREAK),15
+Clement Sordet,2016,Best YTD Streak w/o a 3-Putt,Best YTD Streak w/o a 3-Putt - (CURRENT STREAK),4
+Garrett Willis,2016,Best YTD Streak w/o a 3-Putt,Best YTD Streak w/o a 3-Putt - (CURRENT STREAK),15
+Fabrizio Zanotti,2016,Best YTD Streak w/o a 3-Putt,Best YTD Streak w/o a 3-Putt - (CURRENT STREAK),6
+Frank Adams III,2016,Best YTD Streak w/o a 3-Putt,Best YTD Streak w/o a 3-Putt - (CURRENT STREAK),11
+Michael Block,2016,Best YTD Streak w/o a 3-Putt,Best YTD Streak w/o a 3-Putt - (CURRENT STREAK),14
+Keith Clearwater,2016,Best YTD Streak w/o a 3-Putt,Best YTD Streak w/o a 3-Putt - (CURRENT STREAK),3

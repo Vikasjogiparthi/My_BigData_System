@@ -1,0 +1,32 @@
+hadoop fs -rm /user/karem1a/Homework2/Data_preprocessing_sqlite3_insertion.sh // remove shell script from the hdfs 
+sed -i 's/\r$//' Data_preprocessing_sqlite3_insertion.sh
+sed -e "s/^M//" Data_preprocessing_sqlite3_insertion.sh
+hadoop fs -put Data_preprocessing_sqlite3_insertion.sh /user/karem1a/Homework2/ // put the shell script in the hdfs
+hadoop fs -cat /user/karem1a/Homework2/Data_preprocessing_sqlite3_insertion.sh
+
+hadoop fs -cat /user/karem1a/Homework2/Data_preprocessing_sqlite3_insertion.sh|exec sh -- command to run the shell script in hadoop
+
+cat -A scriptname -- to check the special characters in the scirpt
+ sed -e "s/^M//" filename -- to remove all the special characters in the script
+
+-- PYTHONSTARTUP=pythonSpark.py pyspark
+https://resources.zaloni.com/blog/partitioning-in-hive
+
+
+//Best employee for each statistics in 2012 // This does not work for project partitions
+SELECT  a.player_name, a.statistics, a.variable, a.value
+FROM pgatours20102018 a
+JOIN (SELECT MAX(value) As Highest, statistics FROM pgatours20102018 where season=2012 GROUP BY statistics ) b
+ON a.statistics = b.statistics and a.value = b.Highest;
+
+SELECT a.player_name FROM pgatours20102018 a WHERE a.season = 2012 and a.statistics = "Fairway Bunker Tendency" and a.value in (select max(value) from 
+pgatours20102018 b where b.season = 2012 and b.statistics="Fairway Bunker Tendency");
+
+
+
+make putty directory 
+copy directory to hadoop
+copy filtered data csv to putty directory and hadoop directory
+make necessary changes in python file
+move python file to putty
+

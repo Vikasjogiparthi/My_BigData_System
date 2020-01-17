@@ -1,0 +1,15 @@
+set hive.exec.dynamic.partition=true;
+set hive.exec.dynamic.partition.mode=nonstrict;
+set hive.exec.max.dynamic.partitions.pernode=1000;
+
+DROP TABLE IF EXISTS partitioned_season;
+
+CREATE TEMPORARY TABLE IF NOT EXISTS default.PGATours20102018_tmp(player_name string, statistics string, variable string, value string, season int)  ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n' STORED AS TEXTFILE;
+
+ LOAD DATA LOCAL INPATH '/home/karem1a/Hw2-data-sample/PGA-Tour-2010-2018.csv' INTO table default.PGATours20102018_tmp;
+ 
+ CREATE TABLE default.PARTITIONED_USER (player_name string, statistics string, variable string, value string) PARTITIONED BY season int stored in sequencefile;
+ 
+ Insert into default.PARTITIONED_USER partition (season) select player_name, statistics, variable, value from default.PGATours20102018_tmp;
+ 
+ 
